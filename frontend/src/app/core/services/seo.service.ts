@@ -4,7 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { Product } from '../models/product.model';
 
 const SITE_NAME = 'Aesthetica STEM';
-const BASE_URL = 'https://aesthetica.com';
+const BASE_URL = 'https://shop.marcostorresalarcon.com';
 
 @Injectable({ providedIn: 'root' })
 export class SeoService {
