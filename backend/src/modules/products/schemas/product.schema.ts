@@ -22,7 +22,7 @@ export class Product {
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
 
-ProductSchema.index({ slug: 1 }, { unique: true });
+// slug index already created by unique:true in @Prop — only add compound/multi-field indexes here
 ProductSchema.index({ category: 1, isActive: 1 });
 ProductSchema.index({ tags: 1 });
 ProductSchema.index({ isActive: 1, createdAt: -1 });
