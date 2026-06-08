@@ -1,0 +1,36 @@
+<a [routerLink]="['/shop', product().slug]"
+   class="group block cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden aspect-[3/4] bg-[var(--color-surface-container-low)]">
+
+    @if (badge()) {
+      <span class="absolute top-3 left-3 z-10
+                   bg-[var(--color-serum-pink)]
+                   font-sans text-xs font-semibold tracking-[0.1em] uppercase
+                   px-3 py-1">
+        {{ badge() }}
+      </span>
+    }
+
+    <img [ngSrc]="product().images[0]"
+         fill
+         [alt]="product().name"
+         class="object-cover transition-transform duration-700 ease-out
+                group-hover:scale-105" />
+  </div>
+
+  <!-- Product info -->
+  <div class="pt-4">
+    <p class="font-sans text-xs font-semibold tracking-[0.1em] uppercase
+              text-[var(--color-secondary)]">
+      {{ product().category }}
+    </p>
+    <h3 class="font-sans text-base font-normal mt-1 text-[var(--color-primary)]">
+      {{ product().name }}
+    </h3>
+    <p class="font-sans text-sm mt-1 text-[var(--color-primary)]">
+      ${{ product().price.toFixed(2) }}
+    </p>
+  </div>
+</a>

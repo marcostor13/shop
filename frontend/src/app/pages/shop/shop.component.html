@@ -1,0 +1,29 @@
+<app-nav />
+
+<main class="max-w-[1440px] mx-auto px-[80px] max-md:px-5 py-16">
+  <h1 class="font-serif text-[40px] leading-[1.2] mb-4">Shop All</h1>
+
+  <!-- Category filters -->
+  <div class="flex gap-4 mb-10 flex-wrap">
+    @for (cat of categories; track cat) {
+      <button
+        (click)="setCategory(cat)"
+        [class.bg-primary]="activeCategory() === cat"
+        [class.text-on-primary]="activeCategory() === cat"
+        [class.border-primary]="activeCategory() !== cat"
+        class="border font-sans text-xs font-semibold tracking-[0.1em] uppercase px-4 py-2 transition-colors duration-300">
+        {{ cat }}
+      </button>
+    }
+  </div>
+
+  @if (isLoading()) {
+    <p class="font-sans text-[var(--color-secondary)]">Loading...</p>
+  } @else {
+    <div class="grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1">
+      @for (product of products(); track product._id) {
+        <app-product-card [product]="product" (addToCart)="onAddToCart($event)" />
+      }
+    </div>
+  }
+</main>

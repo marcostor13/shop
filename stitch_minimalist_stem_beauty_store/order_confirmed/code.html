@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AESTHETICA - Order Confirmation</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#8f8274",
+                    "outline": "#747878",
+                    "tertiary": "#000000",
+                    "primary-container": "#1c1b1b",
+                    "serum-pink": "#FDF0ED",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#e1dfdb",
+                    "inverse-surface": "#303031",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "background": "#fbf9f9",
+                    "on-tertiary": "#ffffff",
+                    "surface-dim": "#dbdad9",
+                    "surface-container-low": "#f5f3f3",
+                    "outline-variant": "#c4c7c7",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-tertiary-fixed-variant": "#50453a",
+                    "surface-container-high": "#e9e8e7",
+                    "on-secondary-fixed": "#1b1c19",
+                    "primary-fixed": "#e5e2e1",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "primary": "#000000",
+                    "tertiary-fixed-dim": "#d4c4b5",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed": "#e4e2dd",
+                    "scientific-teal": "#2D4B4B",
+                    "on-surface": "#1b1c1c",
+                    "on-surface-variant": "#444748",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary-container": "#858383",
+                    "surface-container": "#efeded",
+                    "on-secondary-fixed-variant": "#474744",
+                    "surface": "#fbf9f9",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#221a11",
+                    "tertiary-fixed": "#f1e0d0",
+                    "inverse-primary": "#c8c6c5",
+                    "glass-border": "rgba(26, 26, 26, 0.08)",
+                    "on-background": "#1b1c1c",
+                    "secondary-fixed-dim": "#c8c6c2",
+                    "surface-variant": "#e4e2e2",
+                    "surface-bright": "#fbf9f9",
+                    "secondary": "#5e5e5b",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#221a11",
+                    "on-secondary-container": "#63635f",
+                    "surface-tint": "#5f5e5e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "gutter": "24px",
+                    "container-max": "1440px",
+                    "base": "8px",
+                    "margin-mobile": "20px",
+                    "section-gap": "120px"
+            },
+            "fontFamily": {
+                    "display-lg": ["ebGaramond"],
+                    "button": ["hankenGrotesk"],
+                    "headline-md": ["ebGaramond"],
+                    "headline-lg-mobile": ["ebGaramond"],
+                    "body-lg": ["hankenGrotesk"],
+                    "headline-lg": ["ebGaramond"],
+                    "label-caps": ["hankenGrotesk"],
+                    "body-md": ["hankenGrotesk"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "button": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["28px", {"lineHeight": "1.3", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Smooth Fade-In Animation */
+        @keyframes subtleFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            opacity: 0;
+            animation: subtleFadeUp 1s cubic-bezier(0.2, 0, 0, 1) forwards;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+    </style>
+</head>
+<body class="bg-surface text-primary antialiased min-h-screen flex flex-col selection:bg-serum-pink selection:text-primary">
+<!-- Minimal Transactional Header (Navigation Shell Suppressed per rules) -->
+<header class="w-full py-6 flex justify-center items-center border-b border-glass-border bg-surface/80 backdrop-blur-xl z-50">
+<span class="font-display-lg text-headline-md text-primary tracking-tighter">AESTHETICA</span>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-start pt-20 pb-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
+<!-- Hero Success Message -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="w-16 h-16 rounded-full bg-serum-pink flex items-center justify-center mx-auto mb-8 animate-fade-up">
+<span class="material-symbols-outlined text-scientific-teal text-[32px]">check</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-display-lg text-headline-lg-mobile md:text-display-lg text-primary mb-6 animate-fade-up delay-100">
+                Thank you for your order
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary mb-2 animate-fade-up delay-200">
+                Your order <span class="text-primary font-semibold">#AST-84729</span> has been confirmed.
+            </p>
+<p class="font-body-md text-body-md text-secondary animate-fade-up delay-200">
+                We've sent a confirmation email to <span class="text-primary">client@example.com</span> with your receipt and tracking details.
+            </p>
+</div>
+<!-- Order Details Split Layout -->
+<div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-gutter animate-fade-up delay-300">
+<!-- Left: Order Summary -->
+<div class="md:col-span-7 bg-surface-container-lowest border border-glass-border p-6 md:p-8 rounded-DEFAULT">
+<h2 class="font-headline-md text-headline-md text-primary mb-6 border-b border-glass-border pb-4">Order Summary</h2>
+<!-- Items List -->
+<div class="space-y-6 mb-8">
+<!-- Item 1 -->
+<div class="flex items-start gap-4">
+<div class="w-20 h-24 bg-surface-container-low flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90" data-alt="A minimalist, high-end product photograph of a clear glass serum bottle with a white dropper resting on a pristine white surface. Soft, high-key lighting casts a gentle, ethereal shadow to the side. The scene embodies a clean, clinical yet luxurious 'Beauty in STEM' aesthetic, emphasizing transparency and purity. Deep blacks in the typography on the bottle contrast with the bright white environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbzXT0RU5HEcwiXAMq1_MKmjSPWjqXMsuhf3oFtUgcNSgKlXng24bLEw418Zu3L_onfrI2JC2AIzx2x6bmzoc83__b9YRLG3KfxOkNmjMuJF_Xi3IkD1-AZuM5w_OoC6n4CRu5mw8PYOwEUJKIsnGk9C8l3iDF_Bt2u4JxlDyqBxg0dCVzmczWQGA_BCxCe-1JoldeNOveK_677_LZ7QaDA-o4mntUFzBUq0jo9ZzgWkCWkvtdPQ2vOXQX5RXuqh8S1BVO2M03BhA"/>
+</div>
+<div class="flex-grow pt-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-body-md text-body-md text-primary">Cellular Renewal Serum</h3>
+<span class="font-body-md text-body-md text-primary">$185.00</span>
+</div>
+<p class="font-label-caps text-label-caps text-secondary uppercase mb-2">30ML / 1 FL OZ</p>
+<p class="font-body-md text-body-md text-secondary">Qty: 1</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-start gap-4">
+<div class="w-20 h-24 bg-surface-container-low flex-shrink-0 relative overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-90" data-alt="A sleek, matte white jar of moisturizer presented in a stark, minimalist environment. The jar sits slightly off-center against a pale, warm grey background, illuminated by soft, diffused studio lighting that highlights the smooth texture of the container. The mood is calm and authoritative, reflecting a high-end, scientifically backed skincare formulation. No harsh lines or distractions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB09QK5tObgiiEeUiTpDvnerll7T8rCPwb9jo9iFUi3-vt6136UNRRBiqpwlnU2zSmn7SxwskkIdqtYD_-zavKqHpn3maQXOxxYSoKNxEPfXjfc9lYSmh56Q1bQjCxWkogn1gWdeNNI6ytL0VWDZMyAMf70R_iCLs8JyKuxNA9ypTATaibGTDuZwGtcGqJMZHhc4E_z3uQjDF3l9mj8TJI1_3_Lh_mYgR-5P2ycNSHHmmnH3sL_PiQ-S_EBnbna52P10peyKK5CF-M"/>
+</div>
+<div class="flex-grow pt-1">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-body-md text-body-md text-primary">Barrier Repair Matrix</h3>
+<span class="font-body-md text-body-md text-primary">$120.00</span>
+</div>
+<p class="font-label-caps text-label-caps text-secondary uppercase mb-2">50ML / 1.7 FL OZ</p>
+<p class="font-body-md text-body-md text-secondary">Qty: 1</p>
+</div>
+</div>
+</div>
+<!-- Cost Breakdown -->
+<div class="border-t border-glass-border pt-6 space-y-3">
+<div class="flex justify-between font-body-md text-body-md text-secondary">
+<span>Subtotal</span>
+<span class="text-primary">$305.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-secondary">
+<span>Shipping (Standard)</span>
+<span class="text-primary">Complimentary</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-secondary">
+<span>Estimated Tax</span>
+<span class="text-primary">$24.40</span>
+</div>
+<div class="flex justify-between font-body-lg text-body-lg text-primary pt-4 border-t border-glass-border mt-4">
+<span>Total</span>
+<span>$329.40</span>
+</div>
+</div>
+</div>
+<!-- Right: Details & Next Steps -->
+<div class="md:col-span-5 space-y-6">
+<!-- Shipping Info -->
+<div class="bg-surface-container-lowest border border-glass-border p-6 md:p-8 rounded-DEFAULT">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                        Shipping Information
+                    </h3>
+<p class="font-body-md text-body-md text-primary leading-relaxed">
+                        Eleanor Vance<br/>
+                        1284 Scientific Way, Apt 4B<br/>
+                        Cambridge, MA 02138<br/>
+                        United States
+                    </p>
+</div>
+<!-- Support/Action -->
+<div class="bg-serum-pink p-6 md:p-8 rounded-DEFAULT flex flex-col items-start justify-center h-full min-h-[200px]">
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Questions about your order?</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">Our formulation specialists are available to assist you.</p>
+<a class="font-button text-button text-primary uppercase tracking-widest flex items-center gap-2 hover:opacity-70 transition-opacity duration-500 pb-1 border-b border-primary" href="#">
+                        Contact Support
+                        <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Final Action -->
+<div class="mt-16 animate-fade-up delay-500">
+<a class="inline-flex items-center justify-center bg-primary text-on-primary px-8 py-4 font-button text-button uppercase tracking-widest hover:bg-surface-tint transition-colors duration-500" href="/">
+                Return to Science
+            </a>
+</div>
+</main>
+<!-- Footer Component from JSON -->
+<footer class="w-full bg-background dark:bg-surface-container-lowest border-t border-glass-border mt-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col space-y-4">
+<span class="font-display-lg text-headline-md text-primary tracking-tighter">AESTHETICA</span>
+<p class="font-body-md text-body-md text-secondary dark:text-on-surface-variant max-w-xs">
+                    Engineering beauty through cellular precision and meticulous formulations.
+                </p>
+</div>
+<!-- Links Column 1 -->
+<div class="flex flex-col space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Explore</h4>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Formulations</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Support</h4>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Terms</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Privacy</a>
+</div>
+<!-- Copyright Column -->
+<div class="flex flex-col justify-end lg:items-end mt-8 lg:mt-0 lg:col-span-1 md:col-span-2">
+<p class="font-body-md text-body-md text-secondary dark:text-on-surface-variant text-sm">
+                    © 2024 AESTHETICA STEM BEAUTY. ALL RIGHTS RESERVED.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>

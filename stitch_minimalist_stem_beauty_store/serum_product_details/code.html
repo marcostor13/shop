@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AESTHETICA - Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#8f8274",
+                        "outline": "#747878",
+                        "tertiary": "#000000",
+                        "primary-container": "#1c1b1b",
+                        "serum-pink": "#FDF0ED",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#e1dfdb",
+                        "inverse-surface": "#303031",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "background": "#fbf9f9",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#dbdad9",
+                        "surface-container-low": "#f5f3f3",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#50453a",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary-fixed": "#1b1c19",
+                        "primary-fixed": "#e5e2e1",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "primary": "#000000",
+                        "tertiary-fixed-dim": "#d4c4b5",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e4e2dd",
+                        "scientific-teal": "#2D4B4B",
+                        "on-surface": "#1b1c1c",
+                        "on-surface-variant": "#444748",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary-container": "#858383",
+                        "surface-container": "#efeded",
+                        "on-secondary-fixed-variant": "#474744",
+                        "surface": "#fbf9f9",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#221a11",
+                        "tertiary-fixed": "#f1e0d0",
+                        "inverse-primary": "#c8c6c5",
+                        "glass-border": "rgba(26, 26, 26, 0.08)",
+                        "on-background": "#1b1c1c",
+                        "secondary-fixed-dim": "#c8c6c2",
+                        "surface-variant": "#e4e2e2",
+                        "surface-bright": "#fbf9f9",
+                        "secondary": "#5e5e5b",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#221a11",
+                        "on-secondary-container": "#63635f",
+                        "surface-tint": "#5f5e5e"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "margin-desktop": "80px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "margin-mobile": "20px",
+                        "section-gap": "120px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["EB Garamond", "serif"],
+                        "button": ["Hanken Grotesk", "sans-serif"],
+                        "headline-md": ["EB Garamond", "serif"],
+                        "headline-lg-mobile": ["EB Garamond", "serif"],
+                        "body-lg": ["Hanken Grotesk", "sans-serif"],
+                        "headline-lg": ["EB Garamond", "serif"],
+                        "label-caps": ["Hanken Grotesk", "sans-serif"],
+                        "body-md": ["Hanken Grotesk", "sans-serif"]
+                    },
+                    fontSize: {
+                        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+                        "button": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500" }],
+                        "headline-md": ["28px", { lineHeight: "1.3", fontWeight: "400" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "400" }],
+                        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+                        "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "400" }],
+                        "label-caps": ["12px", { lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600" }],
+                        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+                    }
+                }
+            }
+        };
+    </script>
+<style>
+        .accordion-content {
+            transition: max-height 0.4s cubic-bezier(0.2, 0, 0, 1), opacity 0.4s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .accordion-content.active {
+            max-height: 500px;
+            opacity: 1;
+        }
+        .rotate-icon {
+            transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1);
+        }
+        .active .rotate-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-surface-container-high selection:text-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-glass-border">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-6 max-w-container-max mx-auto hidden md:flex">
+<div class="flex items-center gap-8">
+<a class="font-button text-button uppercase tracking-widest text-primary dark:text-on-surface border-b border-primary pb-1" href="#">Collections</a>
+<a class="font-button text-button uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="#">Science</a>
+<a class="font-button text-button uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="#">Journal</a>
+<a class="font-button text-button uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="#">About</a>
+</div>
+<a class="font-display-lg text-headline-md text-primary dark:text-on-surface tracking-tighter hover:opacity-70 transition-opacity duration-500" href="#">AESTHETICA</a>
+<div class="flex items-center gap-6">
+<a class="text-primary dark:text-on-surface hover:opacity-70 transition-opacity duration-500" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+</a>
+<a class="text-primary dark:text-on-surface hover:opacity-70 transition-opacity duration-500" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">person</span>
+</a>
+</div>
+</nav>
+<!-- Mobile Nav Placeholder -->
+<nav class="flex justify-between items-center w-full px-margin-mobile py-4 md:hidden">
+<a class="text-primary dark:text-on-surface" href="#">
+<span class="material-symbols-outlined">menu</span>
+</a>
+<a class="font-display-lg text-headline-md text-primary dark:text-on-surface tracking-tighter" href="#">AESTHETICA</a>
+<a class="text-primary dark:text-on-surface" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+</a>
+</nav>
+</header>
+<main class="pt-[100px] md:pt-[120px] pb-section-gap">
+<article class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Product Images (Left) -->
+<div class="md:col-span-7 space-y-base">
+<div class="aspect-[3/4] w-full bg-surface-container relative overflow-hidden group">
+<img alt="Premium serum bottle" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105" data-alt="A macro, studio lighting shot of a sleek, minimalist frosted glass serum bottle with a metallic silver dropper cap. The bottle is resting on a pristine white marble slab. The lighting is soft and ethereal, creating a high-end, clinical beauty aesthetic typical of luxury skincare brands. The background is a stark, pure white, emphasizing the product's clean lines and the pale, translucent pink liquid inside." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHDmh4V8-eierbyttpJfFAmr_fhFTYiKf0qUk7EeBvZi7I3h1i1xK0baPMGlVhmFu_F-B1Insi-_flkaNtRI-TLp_SVo9g46leiOYH5-fIbmmKWw4q5eIAI55SByRdtUKbMnH0NH3d-Co3SLAqUlGy0zX5AfPhoshrhw4-bUjqjpvORk1FbeHDMxrdCBVuhlIOcCSiUxGVaY6RB7zv_CjYKAwm30glTWfor0tSJFphQSmel5-fppVuBp3wvF3OP6RgGYF1vk17yo0"/>
+</div>
+<div class="grid grid-cols-2 gap-base">
+<div class="aspect-square w-full bg-surface-container relative overflow-hidden group">
+<img alt="Serum texture" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, highly detailed shot of a single drop of clear, viscous serum resting on a smooth, pale skin surface. The lighting is incredibly sharp and clinical, highlighting the subtle refraction of light within the fluid droplet. The overall tone is minimal and scientific, focusing on the pure texture and efficacy of the formulation against a soft, neutral skin tone." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhkmMXw6c0M4jyZG5tbkNartd4xJlADkDNAyZYLsiLE6mlF6qfPd8W1Fv93jxeYamna-0XA2hppb6UreSXYGP4WNQewsWV8MnLrBMCBJULilsqmfQicpjP9fKo8RGEWvH23FOEmU08qm0f2cC5i4DMCF5NSqFTnvK3ESQZLWvsnTc1rGG56WjDlwRzrRvQecFqDp3yj6sIH4i8h_xJsU-GVBBd_6P9tLPt82Tb7b4lPAFzcDwAG_jAiHwW69QM9qydXrKOsz8ryJ4"/>
+</div>
+<div class="aspect-square w-full bg-surface-container relative overflow-hidden group">
+<img alt="Serum application" class="object-cover w-full h-full transform transition-transform duration-700 group-hover:scale-105" data-alt="An abstract, minimalist still life featuring clear glass pipettes and small, shallow dishes filled with distinct, translucent liquids on a white laboratory table. The setup looks highly scientific yet beautifully arranged, conveying a sense of rigorous testing and pristine formulation. The lighting is bright, white, and shadowless, reinforcing the clean, high-end 'Beauty in STEM' aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfFI_UR-7bsVEltk2qZUjigNjMd4ettuw167J4H_aEZjoaYFHceRUQ3hdeijIwtQBc500eoi5_cHcltmLV37OIczklORmOYyKTpdmc_A5iYdRYea93argL1BAPITBF3gnTmp1em9K6ziXTevPxdzllg0B8Ct9T0iUkzW3nEYLJvwiuu4V8mgMTizfbRoN-Xu2v42ysXhTbTf87B38f47zNTU4nbD6gg2Q5CUkHTfpiJVGFFqOziXZ8raYvL6VWrnaqU5cybDMEdx4"/>
+</div>
+</div>
+</div>
+<!-- Product Info (Right) -->
+<div class="md:col-span-5 md:pl-12 lg:pl-20 mt-8 md:mt-0 flex flex-col">
+<div class="sticky top-[120px]">
+<!-- Badges -->
+<div class="flex gap-2 mb-6">
+<span class="bg-serum-pink text-primary font-label-caps text-label-caps px-3 py-1 uppercase tracking-widest rounded-full">New Formula</span>
+<span class="bg-surface-container text-secondary font-label-caps text-label-caps px-3 py-1 uppercase tracking-widest rounded-full">Clinically Proven</span>
+</div>
+<!-- Header -->
+<h1 class="font-display-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Cellular Renewal Complex</h1>
+<p class="font-body-lg text-body-lg text-secondary mb-8 leading-relaxed">
+                        A concentrated, multi-peptide serum engineered to accelerate cellular turnover and visibly restore structural integrity. Formulated with our proprietary Biomimetic Elastin Matrix.
+                    </p>
+<div class="font-body-lg text-body-lg text-primary mb-10">$185.00</div>
+<!-- Add to Bag -->
+<button class="w-full bg-primary text-on-primary font-button text-button uppercase tracking-widest py-5 px-8 hover:bg-secondary transition-colors duration-500 mb-12 flex justify-center items-center gap-3">
+                        Add to Bag
+                        <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</button>
+<!-- Accordions -->
+<div class="border-t border-glass-border">
+<!-- Science -->
+<div class="accordion-item border-b border-glass-border">
+<button class="w-full flex justify-between items-center py-6 focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-button text-button uppercase tracking-widest text-primary">Science</span>
+<span class="material-symbols-outlined text-secondary rotate-icon">keyboard_arrow_down</span>
+</button>
+<div class="accordion-content">
+<div class="pb-6 font-body-md text-body-md text-secondary">
+                                    Our Biomimetic Elastin Matrix utilizes bio-engineered peptides that mimic the structural components of youthful skin. In 12-week clinical trials, 94% of subjects demonstrated a significant increase in epidermal thickness and measurable improvements in tensile strength.
+                                </div>
+</div>
+</div>
+<!-- Ingredients -->
+<div class="accordion-item border-b border-glass-border">
+<button class="w-full flex justify-between items-center py-6 focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-button text-button uppercase tracking-widest text-primary">Ingredients</span>
+<span class="material-symbols-outlined text-secondary rotate-icon">keyboard_arrow_down</span>
+</button>
+<div class="accordion-content">
+<div class="pb-6 font-body-md text-body-md text-secondary">
+                                    Aqua/Water/Eau, Glycerin, Niacinamide, Palmitoyl Tripeptide-1, Palmitoyl Tetrapeptide-7, Sodium Hyaluronate, Ceramide NP, Phytosphingosine, Cholesterol, Carbomer, Xanthan Gum, Phenoxyethanol, Ethylhexylglycerin. <br/><br/> Formulated without parabens, sulfates, or artificial fragrances.
+                                </div>
+</div>
+</div>
+<!-- How to Use -->
+<div class="accordion-item border-b border-glass-border">
+<button class="w-full flex justify-between items-center py-6 focus:outline-none" onclick="toggleAccordion(this)">
+<span class="font-button text-button uppercase tracking-widest text-primary">How to Use</span>
+<span class="material-symbols-outlined text-secondary rotate-icon">keyboard_arrow_down</span>
+</button>
+<div class="accordion-content">
+<div class="pb-6 font-body-md text-body-md text-secondary">
+                                    Apply 2-3 drops to cleansed and toned skin, morning and night. Press gently into the face, neck, and décolletage until fully absorbed. Follow with moisturizer to seal in the active complex.
+                                </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-glass-border bg-background dark:bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div>
+<a class="font-display-lg text-headline-md text-primary" href="#">AESTHETICA</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Formulations</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Shipping</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Terms</a>
+</div>
+<div class="flex flex-col space-y-4">
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Privacy</a>
+<p class="font-body-md text-body-md text-secondary dark:text-on-surface-variant mt-8">© 2024 AESTHETICA STEM BEAUTY. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+<script>
+        function toggleAccordion(btn) {
+            const content = btn.nextElementSibling;
+            const item = btn.parentElement;
+            
+            // Close all other accordions
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                if(el !== item) {
+                    el.classList.remove('active');
+                    el.querySelector('.accordion-content').classList.remove('active');
+                }
+            });
+
+            // Toggle current
+            item.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+        
+        // Open first accordion by default
+        document.addEventListener("DOMContentLoaded", () => {
+            const firstAccordionBtn = document.querySelector('.accordion-item button');
+            if(firstAccordionBtn) toggleAccordion(firstAccordionBtn);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,76 @@
+<nav
+  class="fixed top-0 left-0 right-0 z-50 h-20
+         backdrop-blur-xl bg-[var(--color-surface)]/80
+         border-b border-[var(--color-glass-border)]">
+  <div class="max-w-[1440px] mx-auto px-[80px] max-md:px-5
+              flex items-center justify-between h-full">
+
+    <!-- Logo -->
+    <a routerLink="/"
+       class="font-serif text-xl tracking-[-0.02em] text-[var(--color-primary)]">
+      Aesthetica STEM
+    </a>
+
+    <!-- Desktop nav links -->
+    <ul class="hidden md:flex items-center gap-8 list-none">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a [routerLink]="link.path"
+             routerLinkActive="border-b border-[var(--color-primary)]"
+             class="font-sans text-sm font-medium tracking-[0.05em]
+                    pb-0.5 transition-colors duration-300
+                    hover:text-[var(--color-secondary)]">
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-4">
+      <!-- Cart icon -->
+      <a routerLink="/cart"
+         class="relative flex items-center justify-center"
+         aria-label="Shopping bag">
+        <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+        @if (cartCount() > 0) {
+          <span class="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full
+                       bg-[var(--color-primary)] text-[var(--color-on-primary)]
+                       font-sans text-[10px] font-semibold
+                       flex items-center justify-center">
+            {{ cartCount() }}
+          </span>
+        }
+      </a>
+
+      <!-- Mobile menu button -->
+      <button class="md:hidden flex items-center justify-center"
+              (click)="toggleMobileMenu()"
+              [attr.aria-expanded]="isMobileMenuOpen()"
+              aria-label="Toggle menu">
+        <span class="material-symbols-outlined">
+          {{ isMobileMenuOpen() ? 'close' : 'menu' }}
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (isMobileMenuOpen()) {
+    <div class="md:hidden absolute top-20 left-0 right-0
+                bg-[var(--color-surface)] border-b border-[var(--color-glass-border)]
+                px-5 py-6 flex flex-col gap-4">
+      @for (link of navLinks; track link.path) {
+        <a [routerLink]="link.path"
+           (click)="closeMobileMenu()"
+           class="font-sans text-base font-medium tracking-[0.05em]
+                  py-2 border-b border-[var(--color-glass-border)]">
+          {{ link.label }}
+        </a>
+      }
+    </div>
+  }
+</nav>
+
+<!-- Spacer to offset fixed nav -->
+<div class="h-20"></div>

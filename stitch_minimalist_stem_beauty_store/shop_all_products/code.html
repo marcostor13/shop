@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AESTHETICA - Collections</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#8f8274",
+              "outline": "#747878",
+              "tertiary": "#000000",
+              "primary-container": "#1c1b1b",
+              "serum-pink": "#FDF0ED",
+              "on-secondary": "#ffffff",
+              "secondary-container": "#e1dfdb",
+              "inverse-surface": "#303031",
+              "primary-fixed-dim": "#c8c6c5",
+              "background": "#fbf9f9",
+              "on-tertiary": "#ffffff",
+              "surface-dim": "#dbdad9",
+              "surface-container-low": "#f5f3f3",
+              "outline-variant": "#c4c7c7",
+              "on-primary-fixed": "#1c1b1b",
+              "on-tertiary-fixed-variant": "#50453a",
+              "surface-container-high": "#e9e8e7",
+              "on-secondary-fixed": "#1b1c19",
+              "primary-fixed": "#e5e2e1",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "primary": "#000000",
+              "tertiary-fixed-dim": "#d4c4b5",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#474746",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed": "#e4e2dd",
+              "scientific-teal": "#2D4B4B",
+              "on-surface": "#1b1c1c",
+              "on-surface-variant": "#444748",
+              "inverse-on-surface": "#f2f0f0",
+              "on-primary-container": "#858383",
+              "surface-container": "#efeded",
+              "on-secondary-fixed-variant": "#474744",
+              "surface": "#fbf9f9",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#221a11",
+              "tertiary-fixed": "#f1e0d0",
+              "inverse-primary": "#c8c6c5",
+              "glass-border": "rgba(26, 26, 26, 0.08)",
+              "on-background": "#1b1c1c",
+              "secondary-fixed-dim": "#c8c6c2",
+              "surface-variant": "#e4e2e2",
+              "surface-bright": "#fbf9f9",
+              "secondary": "#5e5e5b",
+              "surface-container-highest": "#e4e2e2",
+              "on-error": "#ffffff",
+              "tertiary-container": "#221a11",
+              "on-secondary-container": "#63635f",
+              "surface-tint": "#5f5e5e"
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem"
+            },
+            spacing: {
+              "margin-desktop": "80px",
+              "gutter": "24px",
+              "container-max": "1440px",
+              "base": "8px",
+              "margin-mobile": "20px",
+              "section-gap": "120px"
+            },
+            fontFamily: {
+              "display-lg": ["ebGaramond"],
+              "button": ["hankenGrotesk"],
+              "headline-md": ["ebGaramond"],
+              "headline-lg-mobile": ["ebGaramond"],
+              "body-lg": ["hankenGrotesk"],
+              "headline-lg": ["ebGaramond"],
+              "label-caps": ["hankenGrotesk"],
+              "body-md": ["hankenGrotesk"]
+            },
+            fontSize: {
+              "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "400" }],
+              "button": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "500" }],
+              "headline-md": ["28px", { lineHeight: "1.3", fontWeight: "400" }],
+              "headline-lg-mobile": ["32px", { lineHeight: "1.2", fontWeight: "400" }],
+              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+              "headline-lg": ["40px", { lineHeight: "1.2", fontWeight: "400" }],
+              "label-caps": ["12px", { lineHeight: "1.2", letterSpacing: "0.1em", fontWeight: "600" }],
+              "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s cubic-bezier(0.2, 0, 0, 1), transform 0.8s cubic-bezier(0.2, 0, 0, 1);
+      }
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Custom Checkbox Style */
+      .form-checkbox:checked {
+        background-color: theme('colors.primary');
+        border-color: theme('colors.primary');
+      }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-surface-variant selection:text-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-xl border-b border-glass-border">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 max-w-container-max mx-auto">
+<!-- Brand -->
+<a class="font-display-lg text-headline-md text-primary dark:text-on-surface tracking-tighter" href="#">
+                AESTHETICA
+            </a>
+<!-- Desktop Nav Links -->
+<nav class="hidden md:flex items-center gap-8">
+<!-- Collections (Active) -->
+<a class="font-button text-button uppercase tracking-widest text-primary dark:text-on-surface border-b border-primary pb-1 hover:opacity-70 transition-opacity duration-500" href="#">
+                    Collections
+                </a>
+<!-- Science (Inactive) -->
+<a class="font-button text-button uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="#">
+                    Science
+                </a>
+<!-- Journal (Inactive) -->
+<a class="font-button text-button uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="#">
+                    Journal
+                </a>
+<!-- About (Inactive) -->
+<a class="font-button text-button uppercase tracking-widest text-secondary dark:text-on-surface-variant hover:text-primary transition-colors duration-300 hover:opacity-70" href="#">
+                    About
+                </a>
+</nav>
+<!-- Trailing Icons -->
+<div class="flex items-center gap-6 text-primary dark:text-on-surface">
+<button aria-label="Search" class="hover:opacity-70 transition-opacity duration-500">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="shopping_bag" class="hover:opacity-70 transition-opacity duration-500">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button aria-label="person" class="hover:opacity-70 transition-opacity duration-500">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-[140px] pb-section-gap min-h-screen">
+<!-- Page Header -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-16 fade-in-up">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center md:text-left">
+                The Formulations
+            </h1>
+<p class="font-body-lg text-body-lg text-secondary mt-4 max-w-2xl text-center md:text-left">
+                Clinically proven, elegantly formulated. Explore our complete range of high-efficacy skincare designed to target your specific concerns with scientific precision.
+            </p>
+</section>
+<!-- Layout Grid -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar / Filters -->
+<aside class="w-full md:w-64 flex-shrink-0 mb-12 md:mb-0 pr-0 md:pr-8 border-b md:border-b-0 md:border-r border-glass-border">
+<div class="sticky top-[140px] space-y-10">
+<!-- Filter Section: Categories -->
+<div>
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Categories</h3>
+<ul class="space-y-3">
+<li><label class="flex items-center gap-3 cursor-pointer group"><input checked="" class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">All Products</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Cleansers</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Serums</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Moisturizers</span></label></li>
+</ul>
+</div>
+<!-- Filter Section: Skin Concern -->
+<div>
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Skin Concern</h3>
+<ul class="space-y-3">
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Hydration</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Anti-Aging</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Blemish Control</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Radiance</span></label></li>
+</ul>
+</div>
+<!-- Filter Section: Ingredients -->
+<div>
+<h3 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Ingredients</h3>
+<ul class="space-y-3">
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Hyaluronic Acid</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Niacinamide</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Peptides</span></label></li>
+<li><label class="flex items-center gap-3 cursor-pointer group"><input class="form-checkbox text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 h-4 w-4 bg-transparent transition-all duration-300" type="checkbox"/><span class="font-body-md text-body-md text-secondary group-hover:text-primary transition-colors">Vitamin C</span></label></li>
+</ul>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
+<!-- Product Card 1 -->
+<a class="group block fade-in-up" href="#">
+<div class="overflow-hidden relative bg-surface-container-low aspect-[3/4]">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105" data-alt="A minimalist, high-end skincare serum bottle featuring a clean glass dropper. The bottle rests elegantly on a pristine white marble block against a soft, bright background. The lighting is bright and editorial, capturing a pristine, light-mode laboratory aesthetic. Subtle reflections emphasize the premium nature of the beauty product." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSuGsdx7Uo074yMbW96TqPl6oImZrnY634Qs3g0sTL8E35_mJPqEPzat8jpGE1CSLGO46FzfFmVumagEUGSNvQ0GJ3WSwS-NTn-S9T1Gilqh9KwKtCtyfVJaZEY9scra1RGSFw5ASukO1isTw2BQujS0tYelERxnqT63F0X9rtDtN9sJN2Ce4SKxpdlLDE7VPDp9xfhYiaHM99J-sYfEZyErWCQOZXXu9Wuy06lh3n8IG74GdigvZSbINmMfDaqDRGN8ux0ZWcIn0"/>
+<div class="absolute top-4 left-4 bg-serum-pink px-3 py-1 font-label-caps text-label-caps text-primary uppercase">
+                            Bestseller
+                        </div>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors duration-300">Bio-Active Hydration Serum</h2>
+<p class="font-label-caps text-label-caps text-secondary mt-2 tracking-widest">$85</p>
+</div>
+</a>
+<!-- Product Card 2 -->
+<a class="group block fade-in-up" href="#" style="transition-delay: 100ms;">
+<div class="overflow-hidden relative bg-surface-container-low aspect-[3/4]">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105" data-alt="A sleek, matte black jar of high-end face cream resting on a smooth, pale stone surface. The minimalist composition features vast negative space, embodying a scientific beauty aesthetic. Soft, diffused daylight highlights the clean typography on the jar. The overall mood is sophisticated, clinical, and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3nXQMZtlczco8JFpB33srLg-wKiIYEcf-XYAATG5OjqD0n5rgKuEsKSE6vmjjwSvN_HbRTWpTJ_8cUlPdUo6Zacg5RjcC7uNdnMbeBjubpK7Pj5nWmK7Lh5k5_0ByPlLyF7RyCxKSsci_0hmTkdyoGtXOI8GdR8sekaFhFc6PJE2s84vEqs3n4HhbwAjgCdl1jy1rec70dlJ5b-XZDK5VGZ849cpRwv1y-TCZToHqf0iXItZ-l6jgWC0N3LWdlgCdVRIssUN6R1M"/>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors duration-300">Cellular Repair Cream</h2>
+<p class="font-label-caps text-label-caps text-secondary mt-2 tracking-widest">$120</p>
+</div>
+</a>
+<!-- Product Card 3 -->
+<a class="group block fade-in-up" href="#" style="transition-delay: 200ms;">
+<div class="overflow-hidden relative bg-surface-container-low aspect-[3/4]">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105" data-alt="A minimalist skincare cleanser bottle rendered in frosted glass, standing upright on a clean, stark white pedestal. The lighting is pure and structural, creating soft drop shadows that emphasize depth without feeling heavy. The scene communicates high-end minimalism, transparency, and a clinical approach to modern beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXerwJh-0mTTRQT6XqNs1HtGoQGEqGA83W_L4HBGGTZvCwKP1gWV7fPkssxPs-QJONn6mr-yTiINwI9iRmZt348Gt3Uz6NCEBQDlkYUvpRxgNU9rMnaP5_St3pUc3RvZWL3U2JWg9pFs9uNXREtugB0QAXtvI4FBYr6W8cYtECiX4ffqiS_UHTmgvE2oCMxjXWRxPnqBXXLDJeLGJH6sR8hZ8OqTIYlzARzVMJ3zSGnXSRvDc8wxdJUt5Q98ONe5CQn-ig6vsyY0Y"/>
+<div class="absolute top-4 left-4 bg-serum-pink px-3 py-1 font-label-caps text-label-caps text-primary uppercase">
+                            New
+                        </div>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors duration-300">Gentle Phyto-Cleanser</h2>
+<p class="font-label-caps text-label-caps text-secondary mt-2 tracking-widest">$45</p>
+</div>
+</a>
+<!-- Product Card 4 -->
+<a class="group block fade-in-up" href="#">
+<div class="overflow-hidden relative bg-surface-container-low aspect-[3/4]">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105" data-alt="A macro shot of a luxurious, semi-transparent serum droplet resting perfectly on a sterile glass plate. The droplet refracts pure white light, showcasing its pure formulation. The background is an out-of-focus, sterile laboratory setting in light hues. The image embodies precision, efficacy, and premium aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzgvBa7fTBMPBsRAH5n8_du3c88vOIqGs4ggF9mblWOtF6lzp8uKOC5uVSzflMywrnEk5pinr2D87s1kahb9yQ9oSqgqFdll70zT9shQhgZXMJ0G5FDQuk5roA2FMZqTHpkMg-nR3r1rH7MwMoEymkiTbSevsvxvypFVRZ7RFHW3zlnoCivcnhK449NrAUmgSF1B1kOsOn3GgK_fA7YkwDLjcFbT7SKohbBS8Sb8Fz9ddl7k-Zw1YsqP2D2l4wy-JDjLJYfjzav5I"/>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors duration-300">Vitamin C Radiance Drops</h2>
+<p class="font-label-caps text-label-caps text-secondary mt-2 tracking-widest">$95</p>
+</div>
+</a>
+<!-- Product Card 5 -->
+<a class="group block fade-in-up" href="#" style="transition-delay: 100ms;">
+<div class="overflow-hidden relative bg-surface-container-low aspect-[3/4]">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105" data-alt="An elegant arrangement of three identical, minimal skincare tubes in muted tones, lying diagonally across a pristine white background. The composition is highly editorial and asymmetrical, allowing for generous negative space. Soft, diffused lighting provides a sense of calm authority and high-end cosmetic design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO8ihK57km6cyv7iHIyIHkPEnQsgjkFsUMkiAF7osPYaZDi-gVMB0A9wsU3cl_Gsujb9yY175pm816oXNmaQpvECnVhpfP4bOKIUikIvpxv7coFPTI5WGxc-jsCDDxzMDSvJhE-GIMLkOjRLqDQiynZ074zA-8JydqgpBTS8Na4214yPWk3scB14Rg-tqioeFXWX93LoYkMUR4M1MEfjXga0T7302IU1tduwoq797xSabQVGUdfziS2Bv8fTt78vmgDyIA69htsq8"/>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors duration-300">Peptide Eye Complex</h2>
+<p class="font-label-caps text-label-caps text-secondary mt-2 tracking-widest">$65</p>
+</div>
+</a>
+<!-- Product Card 6 -->
+<a class="group block fade-in-up" href="#" style="transition-delay: 200ms;">
+<div class="overflow-hidden relative bg-surface-container-low aspect-[3/4]">
+<img alt="Product Image" class="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.2,0,0,1)] group-hover:scale-105" data-alt="A stark, minimalist close-up of a premium cosmetic bottle cap and pump dispenser made of brushed aluminum and white matte plastic. The product is shot against a perfectly uniform, light-toned backdrop. The sharp focus and high-key lighting emphasize the structural elegance and scientific precision of the packaging." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYLXb_ZkRFrILNp22Zap6d7nIXtUPD_x-6Yma_FhypMeoWzHeoGy_nFlDFNGC-dSEdRJ9oBuAMGS-qj47rX6llBMwOfO-_5kviG5CwgfTXs9Z0coanRWQwR9q5j28zgF6qp-e1FMlRcmiB1qxWsOni_aVdEf_JY3aYVT3-pVjy3dU68ZkNQ1VJXqkmBnaITkeBfh3iBIJmU-ZbZVI9rfhUyuLYF5eGEKYKy35kmtfy5EwlvFSVH4aQROsAlg09rjVT0pZv4Rj_8hA"/>
+<div class="absolute top-4 left-4 bg-serum-pink px-3 py-1 font-label-caps text-label-caps text-primary uppercase">
+                            Award Winner
+                        </div>
+</div>
+<div class="mt-6 text-center">
+<h2 class="font-body-md text-body-md text-primary group-hover:text-secondary transition-colors duration-300">Barrier Restore Essence</h2>
+<p class="font-label-caps text-label-caps text-secondary mt-2 tracking-widest">$75</p>
+</div>
+</a>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-background dark:bg-surface-container-lowest border-t border-glass-border">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<!-- Brand Column -->
+<div class="flex flex-col gap-4">
+<span class="font-display-lg text-headline-md text-primary">AESTHETICA</span>
+<p class="font-body-md text-body-md text-secondary max-w-xs mt-2">
+                    Formulating the intersection of rigorous scientific research and editorial beauty.
+                </p>
+</div>
+<!-- Links Column -->
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Formulations</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Shipping</a>
+</div>
+<!-- Links Column 2 -->
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Terms</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-surface-variant hover:text-primary dark:hover:text-on-surface transition-colors duration-300" href="#">Privacy</a>
+</div>
+<!-- Copyright Column -->
+<div class="flex flex-col gap-4 lg:text-right">
+<span class="font-body-md text-body-md text-secondary">
+                    © 2024 AESTHETICA STEM BEAUTY. ALL RIGHTS RESERVED.
+                </span>
+</div>
+</div>
+</footer>
+<!-- Intersection Observer Script for Fade-ins -->
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>
