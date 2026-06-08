@@ -1,5 +1,8 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
+# Override any build-time NODE_ENV=production injected by CI/Coolify
+# so devDependencies (@nestjs/cli) are installed for the build step
+ENV NODE_ENV=development
 COPY package*.json ./
 RUN npm ci
 COPY . .
